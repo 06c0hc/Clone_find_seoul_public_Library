@@ -36,4 +36,6 @@
 
 오픈api로 구글지도에 도서관위치 출력하기 : https://www.youtube.com/watch?v=kLlZ6Gs9icQ
 
+서울시 공공 도서관 데이터 출처 : https://data.seoul.go.kr/dataList/OA-15480/S/1/datasetView.do
+
 
