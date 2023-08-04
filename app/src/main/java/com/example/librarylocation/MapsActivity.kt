@@ -47,15 +47,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        //지도상에서 마커를 누르면 홈페이지로 이동하도록 설정
         mMap.setOnMarkerClickListener{ it ->
             val libraryObject = it.tag as Row //tag에 저장된 Library를 Row로 변환해서 사용
             var homePage = libraryObject.HMPG_URL
             if(!homePage.startsWith("http")){
                 homePage = "http://${homePage}"
             }
+            //인텐트 메세지에 홈페이지 정보를 담아 새로운 액티비티를 시작
             Intent(Intent.ACTION_VIEW, Uri.parse(homePage)).run{
                 startActivity(this)
             }
@@ -68,6 +72,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         loadLibrary()
     }
 
+    //설명 : 네트워크 통신으로 서버에서 공공 도서관 정보를 가져옴
     fun loadLibrary(){
         val retrofit = Retrofit.Builder()
             .baseUrl(SeoulOpenAPI.DOMAIN)
@@ -79,10 +84,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //서비스 객체를 이용하여 네트워크 통신 시도
        service.getLibrary(SeoulOpenAPI.API_KEY).enqueue(object : Callback<Library> {
-            override fun onResponse(call: Call<Library>, response: Response<Library>) {
+           //성공 시 도서관 정보를 출력
+           override fun onResponse(call: Call<Library>, response: Response<Library>) {
                 showLibraries(response.body())
             }
-
+           //실패 시 에러 메시지 출력
             override fun onFailure(call: Call<Library>, t: Throwable) {
                 t.printStackTrace()
             }
@@ -90,11 +96,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
+    //설명 : 도서관의 위치를 지도상에 마커로 표시해줌
     fun showLibraries(libraries: Library?){
         val latLngBounds = LatLngBounds.builder()
 
         for(library in libraries?.SeoulPublicLibraryInfo?.row?: listOf()){
+            //도서관의 위치(위도와 경도)
             val position = LatLng(library.XCNTS.toDouble(),library.YDNTS.toDouble())
+
             val marker = MarkerOptions().position(position)
 
             //마커를 누르면 해당 도서관의 정보가 뜨도록 함
@@ -108,7 +117,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val bounds = latLngBounds.build()
         val padding = 0
         val updatedCamera = CameraUpdateFactory.newLatLngBounds(bounds, padding)
-        mMap.moveCamera(updatedCamera)//위치가 갱신된 카메라를 던져줌
+        mMap.moveCamera(updatedCamera)//위치가 갱신된 카메라로 이동
 
     }
 }

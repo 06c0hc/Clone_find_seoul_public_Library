@@ -1,5 +1,6 @@
 package com.example.librarylocation.data
 
+//도서관에 대한 세부 정보
 data class Row(
     val ADRES: String,
     val CODE_VALUE: String,
