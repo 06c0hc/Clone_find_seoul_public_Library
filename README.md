@@ -28,10 +28,7 @@
   처음에는 API와 OpenAPI가 서로 상반되는 개념인걸로 알고있었다.(API=ClosedAPI로 이해함)
   하지만 나중에 알고보니 OpenAPI는 공공의 목적으로 개방된 API 중 한 종류일 뿐, 둘다 본질적으로 같은 개념이었다.
 
-
-추후 추가로 작성할 예정
   
-
 ***[출처]***
 
 오픈api로 구글지도에 도서관위치 출력하기 : https://www.youtube.com/watch?v=kLlZ6Gs9icQ
