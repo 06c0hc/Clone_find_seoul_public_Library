@@ -29,7 +29,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDpCpDehCzti5u5zDGu_rZ0vjIUhGlglmA" />
+            android:value="Your API Key" /> <!--Google Cloud Platform에서 발급 받은 구글 지도 API 인증키-->
 
         <activity
             android:name=".MapsActivity"

@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 object SeoulOpenAPI {
     val DOMAIN = "http://openapi.seoul.go.kr:8088" //서울시 공공 도서관 url
-    val API_KEY = "66427067666368683437526d646178" //인증키
+    val API_KEY = "Your API Key" //서울 공공 데이터 홈페이지에서 발급 받은 인증키
 }
 
 
