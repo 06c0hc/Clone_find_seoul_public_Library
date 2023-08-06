@@ -25,7 +25,7 @@
 ***어려웠던 점들***
 + API와 OpenAPI의 차이
   
-  처음에는 API와 OpenAPI가 서로 상반되는 개념인걸로 알고있었다.(API=ClosedAPI로 이해함)
+  처음에는 API와 OpenAPI가 서로 상반되는 개념인걸로 이해했었다.(API=ClosedAPI로 이해함)
   하지만 나중에 알고보니 OpenAPI는 공공의 목적으로 개방된 API 중 한 종류일 뿐, 둘다 본질적으로 같은 개념이었다.
 
   
