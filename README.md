@@ -9,7 +9,7 @@
 
 + Retrofit
   
-  - retrofit을 사용해 HTTP 통신 방법을 익혔다.
+  - Retrofit을 사용해 HTTP 통신 방법을 익혔다.
   - HTTP 메서드 중 GET 메서드를 사용해 클라이언트(앱)에서 서버에 있는 리소스에 엑세스하는 방법 익혔다.
 
 + xml, json 파일
